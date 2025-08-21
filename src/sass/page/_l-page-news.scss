@@ -1,0 +1,11 @@
+@use "global" as *;
+
+.l-page-news {
+    padding-top: rem(40);
+    padding-bottom: rem(100);
+
+    @include mq(md) {
+        padding-top: rem(70);
+        padding-bottom: rem(160);
+    }
+}

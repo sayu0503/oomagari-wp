@@ -1,0 +1,176 @@
+@use "global" as *;
+
+.video {
+
+    @include mq(md) {
+        position: relative;
+    }
+}
+
+.video__section-header {
+    position: relative;
+    text-align: center;
+}
+
+.video__section-header-title {
+    font-size: rem(32);
+    font-weight: $bold;
+    font-family: $second-font-family;
+    color: $blue-black;
+    line-height: calc(38 / 32);
+    text-align: center;
+    display: inline-block;
+    position: relative;
+
+    @include mq(md) {
+        font-size: rem(40);
+    }
+}
+
+.video__section-header-title::before {
+    content: "";
+    position: absolute;
+    bottom: -0.5em;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: rem(2);
+    background-color: $brown;
+}
+
+.video__section-header::after {
+    position: absolute;
+    content: "";
+    background-image: url(../images/common/grapes.png);
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: 90%;
+    right: calc(50% - min(48vw, 190px));
+    width: rem(75);
+    height: rem(75);
+    rotate: 10deg;
+
+    @include mq(md) {
+        top: -5%;
+        right: calc(50% - min(48vw, 250px));
+        width: rem(100);
+        height: rem(100);
+    }
+}
+
+.video__container {
+    display: flex;
+    flex-direction: column;
+    margin-top: rem(40);
+    @include mq(md) {
+        margin-top: rem(20);
+        flex-direction: initial;
+        justify-content: center;
+    }
+}
+.video__image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    aspect-ratio: 180 / 200;
+    max-width: 100%;
+    margin-inline: auto;
+    @include mq(md) {
+      width: 40%;
+      aspect-ratio: 257 / 365;
+      z-index: 1;
+      margin-inline: rem(0);
+      max-width: initial;
+    }
+  }
+
+
+  .video__image::after {
+        content: "";
+        position: absolute;
+        background-image: url(../images/common/kannbann.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        z-index: -1;
+        width: 84%;
+        height: 100%;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+        top: 57%;
+        left: 49%;
+        transform: translate(-50%, -52%);
+    @include mq(md){
+        width: 90%;
+        height: 100%;
+    }
+  }
+
+.video__image img {
+    width: 50%;
+    height: auto;
+    object-fit: contain;
+    aspect-ratio: 257 / 365;
+
+  @include mq(md) {
+    width: 53%;
+  }
+}
+
+.video__wrap {
+    @include mq(md){
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        width: rem(1000);
+        max-width: 80%;
+    }
+}
+
+.video__youtube {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16 / 10;
+    margin-top: rem(40);
+    @include mq(md){
+        margin-top: rem(0);
+        height: 85%;
+    }
+}
+
+.video__iframe {
+    border-radius: rem(20);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+}
+
+.video__text {
+    margin-top: rem(40);
+    font-size: rem(15);
+    font-weight: $medium;
+    font-family: $base-font-family;
+    color: $blue-black;
+    line-height: calc(25 / 18);
+    text-align: center;
+
+    @include mq(md) {
+        margin-top: rem(8);
+        font-size: rem(18);
+    }
+}
+
+.video__btn {
+    @include mq(md){
+        margin-inline-start: rem(300);
+    }
+}

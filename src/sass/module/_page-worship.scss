@@ -1,0 +1,139 @@
+@use "global" as *;
+
+.page-worship {
+    background-color: $gray;
+}
+
+.page-worship__intro {
+    font-size: rem(18);
+    font-weight: $regular;
+    font-family: $base-font-family;
+    color: $blue-black;
+    line-height: calc(27 / 18);
+    letter-spacing: 0.05em;
+    max-width: rem(825);
+    margin-inline: auto;
+}
+
+.page-worship__section {
+    display: flex;
+    flex-direction: column;
+    margin-top: rem(34);
+
+    @include mq(md) {
+        margin-top: rem(90);
+        display: grid;
+        gap: rem(50);
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+
+}
+
+.page-worship__section:first-of-type {
+    margin-top: rem(40);
+}
+
+.page-worship__section--reverse {
+    flex-direction: column-reverse;
+
+    @include mq(md) {
+        flex-direction: initial
+    }
+}
+
+.page-worship__image {
+    position: relative;
+    z-index: 1;
+  }
+
+  .page-worship__image::after {
+    @include mq(md){
+        content: "";
+        position: absolute;
+        display: block;
+        background-image: url(../images/common/bg_green.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        top: 56%;
+        left: 46%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        border-top-left-radius: rem(90);
+    }
+  }
+
+  .page-worship__image--right::after {
+    @include mq(md){
+        content: "";
+        position: absolute;
+        display: block;
+        background-image: url(../images/common/bg_gold.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        top: 56%;
+        left: 54%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        border-top-left-radius: rem(90);
+    }
+  }
+
+  .page-worship__image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 540 / 356;
+    border-top-left-radius: rem(90);
+    position: relative;
+    z-index: 5;
+  }
+
+.page-worship__content {
+    margin-top: rem(24);
+    @include mq(md){
+       margin-top: rem(0);
+    }
+}
+
+.page-worship__title {
+    font-size: rem(24);
+    font-weight: $bold;
+    font-family: $second-font-family;
+    color: $blue-black;
+    line-height: calc(32 / 24);
+    border-bottom: rem(1) solid $gold;
+    padding-bottom: rem(8);
+}
+
+.page-worship__meta {
+    margin-top: rem(8);
+}
+
+.page-worship__meta li {
+    font-size: rem(20);
+    font-weight: $medium;
+    font-family: $base-font-family;
+    color: $blue-black;
+    line-height: calc(32 / 20);
+
+    @include mq(md) {
+        font-size: rem(20);
+        letter-spacing: 0.05em;
+    }
+}
+
+.page-worship__text {
+    margin-top: rem(8);
+    font-size: rem(18);
+    font-weight: $regular;
+    font-family: $base-font-family;
+    color: $blue-black;
+    line-height: calc(32 / 18);
+    letter-spacing: 0.05em;
+}

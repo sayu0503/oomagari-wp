@@ -1,0 +1,41 @@
+@use "global" as *;
+
+.top-blog {
+    background-color: $gray;
+
+    @include mq(md) {
+        clip-path:
+        polygon(0 0,
+                100% 0,
+                100% 90%,
+                50% 100%,
+                0 90%);
+    }
+}
+
+.top-blog__contents {
+    margin-top: rem(24);
+    padding-inline: rem(20);
+    @include mq(md){
+       padding-inline: rem(0);
+    }
+}
+
+.top-blog-cards {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    align-items: stretch;
+    gap: rem(40);
+
+
+    @include mq(md) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.top-blog__btn {
+    margin-top: rem(40);
+    @include mq(md){
+       margin-top: rem(80);
+    }
+}

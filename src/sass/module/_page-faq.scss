@@ -1,0 +1,82 @@
+@use "global" as *;
+
+.page-faq {
+    background-color: $white;
+
+}
+
+.inner.page-faq__inner {
+    @include mq(md){
+       max-width: rem(750);
+    }
+}
+
+.page-faq__title-box {
+    text-align: center;
+}
+
+.page-faq__title {
+    font-size: rem(24);
+    font-weight: $bold;
+    font-family: $second-font-family;
+    color: $blue-black;
+    line-height: 1;
+    letter-spacing: 0.05em;
+}
+
+.page-faq__sub-title {
+    font-size: rem(14);
+    font-weight: $regular;
+    font-family: $base-font-family;
+    color: $brown;
+    line-height: calc(21 / 14);
+    letter-spacing: 0.05em;
+    margin-top: rem(12);
+}
+
+.page-faq__items {
+    margin-top: rem(24);
+    margin-bottom: rem(130);
+
+    @include mq(md) {
+        margin-top: rem(40);
+        margin-bottom: rem(0);
+    }
+}
+
+.page-faq__item:not(:first-child) {
+    margin-top: rem(34);
+    @include mq(md){
+       margin-top: rem(40);
+    }
+}
+
+.page-faq__header {
+    font-size: rem(18);
+    font-weight: $medium;
+    font-family: $base-font-family;
+    color: $white;
+    line-height: calc(27 / 18);
+    padding: rem(18) rem(18);
+    background-color: $gold;
+
+    @include mq(md) {
+        padding: rem(18) rem(40);
+        letter-spacing: 0.05em;
+    }
+}
+
+.page-faq__content {
+    font-size: rem(18);
+    font-weight: $regular;
+    font-family: $base-font-family;
+    color: $blue-black;
+    line-height: calc(32 / 18);
+    border: rem(1) solid $gold;
+    padding: rem(18);
+    background-color: $white;
+
+    @include mq(md) {
+        padding: rem(32) rem(40);
+    }
+}
