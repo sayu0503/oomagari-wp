@@ -7,6 +7,7 @@
 .page-breadcrumb__inner {
     display: flex;
     flex-wrap: wrap;
+    gap: rem(8);
 }
 
 .page-breadcrumb__text {

@@ -169,6 +169,7 @@ a {
 }
 
 .l-page-faq {
+	margin-bottom: 5rem;
 	margin-top: 5rem;
 }
 
@@ -885,6 +886,7 @@ a {
 }
 
 .page-404 {
+	margin-bottom: 2.5rem;
 	margin-top: 2.5rem;
 }
 
@@ -1204,6 +1206,7 @@ a {
 .page-breadcrumb__inner {
 	display: flex;
 	flex-wrap: wrap;
+	gap: 0.5rem;
 }
 
 .page-breadcrumb__text {
@@ -2430,6 +2433,7 @@ html {
 }
 
 .l-page-faq {
+	margin-bottom: 7.5rem;
 	margin-top: 4.375rem;
 }
 
@@ -2674,6 +2678,7 @@ html {
 }
 
 .page-404 {
+	margin-bottom: 5rem;
 	margin-top: 5rem;
 }
 
