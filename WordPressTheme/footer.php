@@ -9,28 +9,29 @@
         </a>
         <nav class="footer__nav">
           <ul class="footer__items">
-            <li class="footter__item">
-              <a href="news.html" class="footer__link">お知らせ</a>
+            <li class="footer__item">
+              <a href="<?php echo esc_url(home_url('/news'))?>" class="footer__link">お知らせ</a>
             </li>
-            <li class="footter__item">
-              <a href="worship.html" class="footer__link">礼拝案内</a>
+            <li class="footer__item">
+              <a href="<?php echo esc_url(home_url('/worship'))?>" class="footer__link">礼拝案内</a>
             </li>
-            <li class="footter__item">
-              <a href="about.html" class="footer__link">教会紹介</a>
+            <li class="footer__item">
+              <a href="<?php echo esc_url(home_url('/about'))?>" class="footer__link">教会紹介</a>
             </li>
-            <li class="footter__item">
-              <a href="about.html#faq" class="footer__link">よくある質問</a>
+            <li class="footer__item">
+              <a href="<?php echo esc_url(home_url('/about/#faq'))?>" class="footer__link">よくある質問</a>
             </li>
-            <li class="footter__item">
-              <a href="blog.html" class="footer__link">ブログ</a>
+            <li class="footer__item">
+              <a href="<?php echo esc_url(home_url('/blog'))?>" class="footer__link">ブログ</a>
             </li>
-            <li class="footter__item">
-              <a href=" index.html#access" class="footer__link">アクセス</a>
+            <li class="footer__item">
+              <a href=" <?php echo esc_url(home_url('/about/#access'))?>" class="footer__link">アクセス</a>
             </li>
-            <li class="footter__item">
-              <a href="member.html" class="footer__link">会員限定</a>
+            <li class="footer__item">
+              <a href="<?php echo esc_url(home_url('/member'))?>" class="footer__link">会員限定</a>
             </li>
           </ul>
+          
         </nav>
         <div class="footer__copyright">
           <small>© 2025&ensp;Omagari&ensp;church.&ensp;All&ensp;rights&ensp;reserved.</small>
@@ -38,7 +39,7 @@
       </div>
     </div>
   </footer>
-  <a href="index.html" class="page-top-button js-page-top" aria-label="ページトップに移動する"></a>
+  <a href="<?php echo esc_url(home_url('/'))?>" class="page-top-button js-page-top" aria-label="ページトップに移動する"></a>
   <?php wp_footer(); ?>
 </body>
 

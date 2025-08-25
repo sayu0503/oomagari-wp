@@ -92,3 +92,50 @@ function Change_menulabel() {
   }
   add_action( 'init', 'Change_objectlabel' );
   add_action( 'admin_menu', 'Change_menulabel' );
+
+  // 閲覧数をカウント
+function setPostViews($postID) {
+  $count_key = 'post_views_count';
+  $count = get_post_meta($postID, $count_key, true);
+
+  if ($count == '') {
+      $count = 0;
+      delete_post_meta($postID, $count_key);
+      add_post_meta($postID, $count_key, '0');
+  } else {
+      $count++;
+      update_post_meta($postID, $count_key, $count);
+  }
+}
+
+// アーカイブタイトルから「カテゴリー:」「タグ:」「月:」などを削除
+add_filter( 'get_the_archive_title', function ( $title ) {
+
+  if ( is_category() ) {
+      $title = single_cat_title( '', false );
+
+  } elseif ( is_tag() ) {
+      $title = single_tag_title( '', false );
+
+  } elseif ( is_tax() ) {
+      $title = single_term_title( '', false );
+
+  } elseif ( is_post_type_archive() ) {
+      $title = post_type_archive_title( '', false );
+
+  } elseif ( is_author() ) {
+      $title = get_the_author();
+
+  } elseif ( is_date() ) {
+      if ( is_year() ) {
+          $title = get_the_date( 'Y年' );
+      } elseif ( is_month() ) {
+          $title = get_the_date( 'Y年n月' );
+      } elseif ( is_day() ) {
+          $title = get_the_date( 'Y年n月j日' );
+      }
+  }
+
+  return $title;
+});
+

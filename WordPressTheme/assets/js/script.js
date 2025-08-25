@@ -18,13 +18,14 @@ jQuery(function ($) {
     }
   });
 
-  // メニュー内リンククリック時
   $(".js-sp-nav a").click(function (event) {
-    var target = $(this).attr("href");
-    if (target.startsWith("#")) {
+    var href = $(this).attr("href");
+
+    // 同一ページ内のアンカーリンク（href が "#" で始まる）
+    if (href.startsWith("#")) {
       event.preventDefault();
       var headerHeight = $(".js-header").outerHeight();
-      var $target = $(target);
+      var $target = $(href);
       if ($target.length) {
         var position = $target.offset().top - headerHeight;
         $("html, body").animate({

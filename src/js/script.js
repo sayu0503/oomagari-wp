@@ -17,14 +17,14 @@ jQuery(function ($) { // WordPressでも$を使えるようにするスコープ
     }
   });
 
-  // メニュー内リンククリック時
   $(".js-sp-nav a").click(function (event) {
-    const target = $(this).attr("href");
+    const href = $(this).attr("href");
 
-    if (target.startsWith("#")) {
+    // 同一ページ内のアンカーリンク（href が "#" で始まる）
+    if (href.startsWith("#")) {
       event.preventDefault();
       const headerHeight = $(".js-header").outerHeight();
-      const $target = $(target);
+      const $target = $(href);
       if ($target.length) {
         const position = $target.offset().top - headerHeight;
         $("html, body").animate({ scrollTop: position }, 500);

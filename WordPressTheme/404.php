@@ -9,7 +9,7 @@
           <div class="page-404__text-box">
             <p class="page-404__text">お探しのページが<br class="u-mobile">見つかりませんでした。</p>
             <div class="page-404__btn">
-              <a href="index.html" class="button">トップに戻る</a>
+              <a href="<?php echo esc_url(home_url('/'))?>" class="button">トップに戻る</a>
             </div>
           </div>
         </div>

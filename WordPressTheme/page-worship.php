@@ -70,7 +70,7 @@
           </div>
 
           <!-- 教会学校 -->
-          <div class="page-worship__section" id="shcool">
+          <div class="page-worship__section" id="school">
             <div class="page-worship__image">
               <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/worship_img3.jpg" alt="教会の子供達" decoding="async" loading="lazy"
                 width="540" height="356">
