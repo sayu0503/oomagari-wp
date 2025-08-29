@@ -352,13 +352,14 @@ a {
 }
 
 .blog-card__img {
+	aspect-ratio: 345/227;
 	overflow: hidden;
 }
 
 .blog-card__img img {
 	-o-object-fit: cover;
-	aspect-ratio: 345/227;
-	height: 100%;
+	display: block;
+	height: -webkit-fill-available;
 	object-fit: cover;
 	width: 100%;
 }
@@ -934,6 +935,9 @@ a {
 .page-about__pastor-image {
 	display: flex;
 	justify-content: center;
+	margin-left: auto;
+	margin-right: auto;
+	width: 70%;
 }
 
 .page-about__pastor-image img {
@@ -944,7 +948,7 @@ a {
 	height: 100%;
 	max-width: 21.875rem;
 	object-fit: cover;
-	width: 70%;
+	width: 100%;
 }
 
 .page-about__pastor-name {
@@ -1370,6 +1374,29 @@ a {
 	height: 100%;
 	object-fit: cover;
 	width: 100%;
+}
+
+.page-member__pdf {
+	align-items: center;
+	background: #fff;
+	border: 1px solid #D5AF65;
+	box-shadow: 0.25rem 0.375rem 0.25rem 0rem rgba(0, 0, 0, 0.05);
+	color: #7D5C1E;
+	display: flex;
+	font-family: "Noto Sans", sans-serif;
+	font-size: 1.125rem;
+	font-weight: 700;
+	justify-content: center;
+	line-height: 1.2;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 15.625rem;
+	padding-bottom: 1rem;
+	padding-left: 2.5rem;
+	padding-right: 1rem;
+	padding-top: 1rem;
+	position: relative;
+	transition: 0.3s ease-in-out;
 }
 
 .page-news {
@@ -1976,6 +2003,9 @@ a {
 .top-about__image {
 	display: flex;
 	justify-content: center;
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
 }
 
 .top-about__image img {
@@ -1984,7 +2014,7 @@ a {
 	border-radius: 50%;
 	height: 100%;
 	object-fit: cover;
-	width: 80%;
+	width: 100%;
 }
 
 .top-about__pastor-info {
@@ -2093,8 +2123,9 @@ a {
 }
 
 .top-school-info__image {
-	display: flex;
-	justify-content: center;
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
 }
 
 .top-school-info__image img {
@@ -2102,7 +2133,7 @@ a {
 	aspect-ratio: 293/253;
 	height: 100%;
 	object-fit: cover;
-	width: 80%;
+	width: 100%;
 }
 
 .top-school-info__time {
@@ -2287,6 +2318,9 @@ a {
 	-o-object-fit: contain;
 	aspect-ratio: 257/365;
 	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 100%;
 	object-fit: contain;
 	width: 50%;
 }
@@ -2442,7 +2476,7 @@ html {
 }
 
 .l-page-member {
-	padding-bottom: 11.25rem;
+	padding-bottom: 12.5rem;
 	padding-top: 5rem;
 }
 
@@ -2729,9 +2763,12 @@ html {
 	z-index: 1;
 }
 
+.page-about__pastor-image {
+	width: 75%;
+}
+
 .page-about__pastor-image img {
 	max-width: inherit;
-	width: 75%;
 }
 
 .page-about__pastor-name {
@@ -3232,8 +3269,6 @@ html {
 
 .video__image {
 	aspect-ratio: 257/365;
-	margin-left: 0rem;
-	margin-right: 0rem;
 	max-width: none;
 	max-width: initial;
 	width: 40%;

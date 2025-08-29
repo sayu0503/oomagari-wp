@@ -5,10 +5,12 @@
       <div class="page-fv__inner">
         <div class="page-fv__image">
         <picture>
-             <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_blog-pc.jpg" media="(min-width: 768px)" width="1440" height="548">
-             <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_blog-sp.jpg" alt="水辺に置かれたコーヒーカップと聖書" decoding="async" width="375"
-              height="460">
-          </picture>
+                <source type="image/webp" srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_blog-pc.webp" media="(min-width: 768px)" width="1440" height="548">
+                <source type="image/webp" srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_blog-sp.webp" media="(max-width: 767px)" width="375" height="460">
+                <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_blog-pc.jpg" media="(min-width: 768px)" width="1440" height="548">
+                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_blog-sp.jpg" alt="水辺に置かれたコーヒーカップと聖書" decoding="async" width="375" height="460"
+                loading="eager" fetchpriority="high">
+              </picture>
         </div>
         <div class="page-fv__title-box">
           <p class="page-fv__title"><?php
@@ -36,7 +38,11 @@
               <?php if ( has_post_thumbnail() ) : ?>
                 <img src="<?php echo get_the_post_thumbnail_url( null, 'full' ); ?>" alt="<?php the_title_attribute(); ?>のアイキャッチ画像">
             <?php else : ?>
-                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/noimage.jpg" alt="noimage">
+              <picture>
+                  <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/service_img3.webp" type="image/webp">
+                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/service_img3.jpg"
+                  alt="noimage" width="250" height="280" loading="lazy" decoding="async">
+            </picture>
             <?php endif; ?>
                 <div class="blog-card__meta">
                   <time datetime="<?php echo get_the_date('c'); ?>" class="blog-card__date"><?php echo get_the_date('Y年n月j日'); ?></time>

@@ -4,10 +4,13 @@
     <div class="page-fv" id="js-fv">
       <div class="page-fv__inner">
         <div class="page-fv__image">
-          <picture>
-            <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_news-pc.jpg" media="(min-width: 768px)" width="1440" height="548">
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_news-sp.jpg" alt="開かれた聖書" decoding="async" width="375" height="460">
-          </picture>
+        <picture>
+                <source type="image/webp" srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_news-pc.webp" media="(min-width: 768px)" width="1440" height="548">
+                <source type="image/webp" srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_news-sp.webp" media="(max-width: 767px)" width="375" height="460">
+                <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_news-pc.jpg" media="(min-width: 768px)" width="1440" height="548">
+                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_news-sp.jpg" alt="開かれた聖書" decoding="async" width="375" height="460"
+                loading="eager" fetchpriority="high">
+              </picture>
         </div>
         <div class="page-fv__title-box">
           <h1 class="page-fv__title">お知らせ</h1>

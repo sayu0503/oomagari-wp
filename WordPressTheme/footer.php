@@ -25,13 +25,12 @@
               <a href="<?php echo esc_url(home_url('/blog'))?>" class="footer__link">ブログ</a>
             </li>
             <li class="footer__item">
-              <a href=" <?php echo esc_url(home_url('/about/#access'))?>" class="footer__link">アクセス</a>
+              <a href=" <?php echo esc_url(home_url('/#access'))?>" class="footer__link">アクセス</a>
             </li>
             <li class="footer__item">
               <a href="<?php echo esc_url(home_url('/member'))?>" class="footer__link">会員限定</a>
             </li>
           </ul>
-          
         </nav>
         <div class="footer__copyright">
           <small>© 2025&ensp;Omagari&ensp;church.&ensp;All&ensp;rights&ensp;reserved.</small>

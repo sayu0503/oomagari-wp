@@ -12,11 +12,14 @@
 <body>
 <header class="header js-header">
     <div class="header__inner">
-      <h1 class="header__logo">
-        <a href="<?php echo esc_url(home_url('/'))?>" class="header__logo-link">
-          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/omagarichurch_logo.svg" alt="大曲教会ロゴ" decoding="async"
-            class="header__logo-icon" width="179" height="63"></a>
-      </h1>
+    <?php $tag = ( is_front_page() ? 'h1' : 'div' ); ?>
+<<?php echo $tag; ?> class="header__logo">
+  <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="header__logo-link">
+    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/omagarichurch_logo.svg"
+         alt="大曲教会ロゴ" decoding="async" class="header__logo-icon" width="179" height="63">
+  </a>
+</<?php echo $tag; ?>>
+
       <button type="button" class="header__drawer hamburger js-hamburger">
         <span></span>
         <span></span>
@@ -101,7 +104,6 @@
             </li>
           </ul>
         </div>
-        
       </nav>
     </div>
   </header>

@@ -5,10 +5,12 @@
       <div class="page-fv__inner">
         <div class="page-fv__image">
         <picture>
-             <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_blog-pc.jpg" media="(min-width: 768px)" width="1440" height="548">
-             <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_blog-sp.jpg" alt="水辺に置かれたコーヒーカップと聖書" decoding="async" width="375"
-              height="460">
-          </picture>
+                <source type="image/webp" srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_blog-pc.webp" media="(min-width: 768px)" width="1440" height="548">
+                <source type="image/webp" srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_blog-sp.webp" media="(max-width: 767px)" width="375" height="460">
+                <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_blog-pc.jpg" media="(min-width: 768px)" width="1440" height="548">
+                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_blog-sp.jpg" alt="水辺に置かれたコーヒーカップと聖書" decoding="async" width="375"
+                height="460">
+              </picture>
         </div>
         <div class="page-fv__title-box">
           <p class="page-fv__title">ブログ</p>

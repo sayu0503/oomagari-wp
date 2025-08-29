@@ -82,7 +82,6 @@
       width: 40%;
       aspect-ratio: 257 / 365;
       z-index: 1;
-      margin-inline: rem(0);
       max-width: initial;
     }
   }
@@ -109,10 +108,12 @@
   }
 
 .video__image img {
-    width: 50%;
+    width: 50%;        // ← 幅は自動
+    max-width: 100%;    // ← 親幅を超えないように
     height: auto;
     object-fit: contain;
     aspect-ratio: 257 / 365;
+    margin-inline: auto;
 
   @include mq(md) {
     width: 53%;

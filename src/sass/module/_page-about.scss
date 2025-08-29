@@ -52,11 +52,16 @@
 .page-about__pastor-image {
     display: flex;
     justify-content: center;
+    width: 70%;
+    margin-inline: auto;
+    @include mq(md){
+       width: 75%;
+    }
 }
 
-.page-about__pastor-image img {
+.page-about__pastor-image img{
     aspect-ratio: 310 / 392;
-    width: 70%;
+    width: 100%;
     height: 100%;
     object-fit: cover;
     max-width: rem(350);
@@ -64,7 +69,6 @@
     box-shadow: 0 rem(4) rem(12) rgba(0, 0, 0, 0.15);
     @include mq(md){
        max-width: inherit;
-       width: 75%;
 
     }
 }
@@ -209,6 +213,7 @@
         z-index: 10;
     }
 }
+
 
 .page-about__history-image {
     display: flex;

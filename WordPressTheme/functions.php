@@ -139,3 +139,148 @@ add_filter( 'get_the_archive_title', function ( $title ) {
   return $title;
 });
 
+function login_logo() {
+  echo '<style type="text/css">
+    #login h1 a {
+      background: url('.get_template_directory_uri().'/assets/images/common/omagarichurch_logo.svg) no-repeat center;
+      background-size: contain;
+      width: 266px;
+      height: 150px;
+    }
+
+  }
+  </style>';
+}
+add_action('login_head', 'login_logo');
+
+function custom_login_logo_url() {
+return home_url();
+}
+add_filter( 'login_headerurl', 'custom_login_logo_url' );
+
+//サムネイルカラム追加
+function customize_manage_posts_columns($columns) {
+  $columns['thumbnail'] = __('Thumbnail');
+  return $columns;
+}
+add_filter( 'manage_posts_columns', 'customize_manage_posts_columns' );
+
+//サムネイル画像表示
+function customize_manage_posts_custom_column($column_name, $post_id) {
+  if ( 'thumbnail' == $column_name) {
+      $thum = get_the_post_thumbnail($post_id, 'small', array( 'style'=>'width:100px;height:auto;' ));
+  } if ( isset($thum) && $thum ) {
+      echo $thum;
+  } else {
+      echo __('None');
+  }
+}
+add_action( 'manage_posts_custom_column', 'customize_manage_posts_custom_column', 10, 2 );
+
+
+// ダッシュボードにカスタムウィジェットを追加
+function my_custom_dashboard_widgets() {
+    wp_add_dashboard_widget(
+        'my_dashboard_menu', // ウィジェットID
+        '管理メニュー',       // タイトル
+        'my_dashboard_menu_display' // コールバック
+    );
+}
+add_action('wp_dashboard_setup', 'my_custom_dashboard_widgets');
+
+// ウィジェットの中身
+function my_dashboard_menu_display() {
+    ?>
+    <style>
+        .my-dashboard__menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .my-dashboard__menu-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            background-color: #d9534f;
+            color: #fff !important;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+        .my-dashboard__menu-item:hover {
+            transform: translateY(-4px);
+            background-color: #c9302c;
+        }
+        .my-dashboard__icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .my-dashboard__icon {
+              font-size: 1.5rem;              /* アイコンサイズ */
+              width: 3rem;                    /* 丸の横幅 */
+              height: 3rem;                   /* 丸の縦幅 */
+              border-radius: 50%;             /* 丸くする */
+              background-color: #fff;         /* 背景を白に */
+              color: #d9534f;                 /* アイコンの色（赤パネルと統一） */
+              display: flex;                  /* アイコンを中央配置 */
+              align-items: center;
+              justify-content: center;
+              margin-bottom: 0.5rem;
+              box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* ほんの少し影を付ける */
+              transition: background-color 0.3s, color 0.3s;
+          }
+        /* 会員限定だけ色変更 */
+        .my-dashboard__menu-item--restricted {
+            background-color: #5bc0de;
+        }
+        .my-dashboard__menu-item--restricted:hover {
+            background-color: #31b0d5;
+        }
+    </style>
+
+    <div class="my-dashboard__menu">
+        <!-- ブログ（通常投稿） -->
+        <a href="<?php echo admin_url('edit.php'); ?>" class="my-dashboard__menu-item">
+            <div class="my-dashboard__icon">📝</div>
+            <span>ブログ</span>
+        </a>
+
+        <!-- お知らせ（CPT: news） -->
+        <a href="<?php echo admin_url('edit.php?post_type=news'); ?>" class="my-dashboard__menu-item">
+            <div class="my-dashboard__icon">📢</div>
+            <span>お知らせ</span>
+        </a>
+
+        <!-- YouTube（仮: CPT youtube） -->
+        <a href="<?php echo admin_url('post.php?post=15&action=edit'); ?>" class="my-dashboard__menu-item">
+            <div class="my-dashboard__icon">🎥</div>
+            <span>YouTube</span>
+        </a>
+
+        <!-- FAQ（仮: CPT faq） -->
+        <a href="<?php echo admin_url('post.php?post=11&action=edit'); ?>" class="my-dashboard__menu-item">
+            <div class="my-dashboard__icon">❓</div>
+            <span>よくある質問</span>
+        </a>
+
+        <!-- ギャラリー（仮: CPT gallery） -->
+        <a href="<?php echo admin_url('post.php?post=8&action=edit'); ?>" class="my-dashboard__menu-item">
+            <div class="my-dashboard__icon">🖼️</div>
+            <span>ギャラリー</span>
+        </a>
+
+        <!-- 会員限定（仮: CPT members） -->
+        <a href="<?php echo admin_url('post.php?post=13&action=edit'); ?>" class="my-dashboard__menu-item my-dashboard__menu-item--restricted">
+            <div class="my-dashboard__icon">🔑</div>
+            <span>会員限定</span>
+        </a>
+    </div>
+    <?php
+}
+
+
+

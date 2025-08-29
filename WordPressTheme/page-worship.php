@@ -5,12 +5,13 @@
     <div class="page-fv" id="js-fv">
       <div class="page-fv__inner">
         <div class="page-fv__image">
-          <picture>
-            <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_worship-pc.jpg" media="(min-width: 768px)" width="1440"
-              height="548">
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_worship-sp.jpg" alt="手の平にクローバーがある様子" decoding="async" width="375"
+        <picture>
+                <source type="image/webp" srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_worship-pc.webp" media="(min-width: 768px)" width="1440" height="548">
+                <source type="image/webp" srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_worship-sp.webp" media="(max-width: 767px)" width="375" height="460">
+                <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_worship-pc.jpg" media="(min-width: 768px)" width="1440" height="548">
+                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_worship-sp.jpg" alt="手の平にクローバーがある様子" decoding="async" width="375"
               height="460">
-          </picture>
+              </picture>
         </div>
         <div class="page-fv__title-box">
           <h1 class="page-fv__title">礼拝案内</h1>
@@ -97,60 +98,60 @@
 
           <!-- ギャラリーセクション -->
           <?php
-$gallery = get_field('gallery_group'); // グループの取得
+          $gallery = get_field('gallery_group'); // グループの取得
 
-if ( $gallery ) :
+          if ( $gallery ) :
 
-  // 画像が1枚でもあるかチェック
-  $has_image = false;
-  foreach (['gallery_1', 'gallery_2', 'gallery_3', 'gallery_4'] as $key) {
-    if ( !empty($gallery[$key]) ) {
-      $has_image = true;
-      break;
-    }
-  }
+            // 画像が1枚でもあるかチェック
+            $has_image = false;
+            foreach (['gallery_1', 'gallery_2', 'gallery_3', 'gallery_4'] as $key) {
+              if ( !empty($gallery[$key]) ) {
+                $has_image = true;
+                break;
+              }
+            }
 
-  if ( $has_image ) : ?>
-    <section class="page-worship__gallery gallery">
-      <h2 class="gallery__title">ギャラリー</h2>
-      <div class="gallery__grid">
+            if ( $has_image ) : ?>
+              <section class="page-worship__gallery gallery">
+                <h2 class="gallery__title">ギャラリー</h2>
+                <div class="gallery__grid">
 
-        <?php if ( !empty($gallery['gallery_1']) ) : ?>
-          <div class="gallery__item gallery__item1">
-            <img src="<?php echo esc_url($gallery['gallery_1']['url']); ?>" 
-                 alt="<?php echo esc_attr($gallery['gallery_1']['alt']); ?>" 
-                 decoding="async" loading="lazy">
-          </div>
-        <?php endif; ?>
+                  <?php if ( !empty($gallery['gallery_1']) ) : ?>
+                    <div class="gallery__item gallery__item1">
+                      <img src="<?php echo esc_url($gallery['gallery_1']['url']); ?>" 
+                          alt="<?php echo esc_attr($gallery['gallery_1']['alt']); ?>" 
+                          decoding="async" loading="lazy">
+                    </div>
+                  <?php endif; ?>
 
-        <?php if ( !empty($gallery['gallery_2']) ) : ?>
-          <div class="gallery__item gallery__item2">
-            <img src="<?php echo esc_url($gallery['gallery_2']['url']); ?>" 
-                 alt="<?php echo esc_attr($gallery['gallery_2']['alt']); ?>" 
-                 decoding="async" loading="lazy">
-          </div>
-        <?php endif; ?>
+                  <?php if ( !empty($gallery['gallery_2']) ) : ?>
+                    <div class="gallery__item gallery__item2">
+                      <img src="<?php echo esc_url($gallery['gallery_2']['url']); ?>" 
+                          alt="<?php echo esc_attr($gallery['gallery_2']['alt']); ?>" 
+                          decoding="async" loading="lazy">
+                    </div>
+                  <?php endif; ?>
 
-        <?php if ( !empty($gallery['gallery_3']) ) : ?>
-          <div class="gallery__item gallery__item3">
-            <img src="<?php echo esc_url($gallery['gallery_3']['url']); ?>" 
-                 alt="<?php echo esc_attr($gallery['gallery_3']['alt']); ?>" 
-                 decoding="async" loading="lazy">
-          </div>
-        <?php endif; ?>
+                  <?php if ( !empty($gallery['gallery_3']) ) : ?>
+                    <div class="gallery__item gallery__item3">
+                      <img src="<?php echo esc_url($gallery['gallery_3']['url']); ?>" 
+                          alt="<?php echo esc_attr($gallery['gallery_3']['alt']); ?>" 
+                          decoding="async" loading="lazy">
+                    </div>
+                  <?php endif; ?>
 
-        <?php if ( !empty($gallery['gallery_4']) ) : ?>
-          <div class="gallery__item gallery__item4">
-            <img src="<?php echo esc_url($gallery['gallery_4']['url']); ?>"
-                 alt="<?php echo esc_attr($gallery['gallery_4']['alt']); ?>"
-                 decoding="async" loading="lazy">
-          </div>
-        <?php endif; ?>
+                  <?php if ( !empty($gallery['gallery_4']) ) : ?>
+                    <div class="gallery__item gallery__item4">
+                      <img src="<?php echo esc_url($gallery['gallery_4']['url']); ?>"
+                          alt="<?php echo esc_attr($gallery['gallery_4']['alt']); ?>"
+                          decoding="async" loading="lazy">
+                    </div>
+                  <?php endif; ?>
 
-      </div>
-    </section>
-  <?php endif; ?>
-<?php endif; ?>
+                </div>
+              </section>
+            <?php endif; ?>
+          <?php endif; ?>
 
 
 

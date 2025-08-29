@@ -4,11 +4,12 @@
     <div class="page-fv" id="js-fv">
       <div class="page-fv__inner">
         <div class="page-fv__image">
-          <picture>
-            <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_about-pc.jpg" media="(min-width: 768px)" width="1440"
-              height="548">
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_about-sp.jpg" alt="青空と十字架" decoding="async" width="375" height="460">
-          </picture>
+        <picture>
+                <source type="image/webp" srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_about-pc.webp" media="(min-width: 768px)" width="1440" height="548">
+                <source type="image/webp" srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_about-sp.webp" media="(max-width: 767px)" width="375" height="460">
+                <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_about-pc.jpg" media="(min-width: 768px)" width="1440" height="548">
+                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_about-sp.jpg" alt="青空と十字架" decoding="async" width="375" height="460">
+              </picture>
         </div>
         <div class="page-fv__title-box">
           <h1 class="page-fv__title">教会紹介</h1>
@@ -132,10 +133,6 @@
                   </div>
                 </div>
               </div>
-
-
-
-
             </div>
           </div>
         </section>
@@ -172,8 +169,11 @@
               </ul>
             </div>
             <div class="page-about__events-image">
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/about_img2.jpg" alt="白い百合の花" decoding="async" loading="lazy" width="464"
-                height="292">
+            <picture>
+                  <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/about_img2.webp" type="image/webp">
+                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/about_img2.jpg" alt="白い百合の花" decoding="async" loading="lazy" width="464"
+                  height="292">
+            </picture>
             </div>
           </div>
         </section>
@@ -193,24 +193,36 @@
       // SCFからFAQリストを取得
       $faq_list = SCF::get('faq_list');
 
+      // 出力した件数をカウント
+      $printed = 0;
+
       if (!empty($faq_list)) :
         foreach ($faq_list as $faq) :
-          $question = esc_html($faq['Question']); // 質問
-          $answer   = wp_kses_post($faq['Answer']); // 回答（HTML許可）
+          $question = !empty($faq['Question']) ? esc_html($faq['Question']) : '';
+          $answer   = !empty($faq['Answer'])   ? wp_kses_post($faq['Answer']) : '';
+
+          // 両方揃っている場合だけ出力
+          if ($question && $answer) :
+            $printed++;
       ?>
-          <dl class="page-faq__item">
-            <dt class="page-faq__header">Q.&nbsp;<?php echo $question; ?></dt>
-            <dd class="page-faq__content"><?php echo nl2br($answer); ?></dd>
-          </dl>
+            <dl class="page-faq__item">
+              <dt class="page-faq__header">Q.&nbsp;<?php echo $question; ?></dt>
+              <dd class="page-faq__content"><?php echo nl2br($answer); ?></dd>
+            </dl>
       <?php
+          endif;
         endforeach;
-      else :
+      endif;
+
+      // 1件も出力されなかった場合
+      if ($printed === 0) :
       ?>
         <p>現在、よくある質問はありません。</p>
       <?php endif; ?>
     </div>
   </div>
 </section>
+
 
 
   </main>

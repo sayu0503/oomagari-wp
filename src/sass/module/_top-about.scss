@@ -55,12 +55,14 @@
 .top-about__image {
     display: flex;
     justify-content: center;
+    width: 80%;
+    margin-inline: auto;
 }
 
 .top-about__image img {
-    border-radius: 50%;
     aspect-ratio: 250 / 250;
-    width: 80%;
+    border-radius: 50%;
+    width: 100%;
     height: 100%;
     object-fit: cover;
 }

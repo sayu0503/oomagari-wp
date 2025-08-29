@@ -19,14 +19,13 @@
 }
 
 .top-school-info__image {
-    display: flex;
-    justify-content: center;
+    width: 80%;
+    margin-inline: auto;
 }
 
-
-.top-school-info__image img {
+.top-school-info__image img{
     aspect-ratio: 293 / 253;
-    width: 80%;
+    width: 100%;
     height: 100%;
     object-fit: cover;
 

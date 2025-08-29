@@ -4,11 +4,13 @@
     <div class="page-fv" id="js-fv">
       <div class="page-fv__inner">
         <div class="page-fv__image">
-          <picture>
-             <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_blog-pc.jpg" media="(min-width: 768px)" width="1440" height="548">
-             <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_blog-sp.jpg" alt="水辺に置かれたコーヒーカップと聖書" decoding="async" width="375"
-              height="460">
-          </picture>
+        <picture>
+                <source type="image/webp" srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_blog-pc.webp" media="(min-width: 768px)" width="1440" height="548">
+                <source type="image/webp" srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_blog-sp.webp" media="(max-width: 767px)" width="375" height="460">
+                <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_blog-pc.jpg" media="(min-width: 768px)" width="1440" height="548">
+                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/fv_blog-sp.jpg" alt="水辺に置かれたコーヒーカップと聖書" decoding="async" width="375"
+                height="460">
+              </picture>
         </div>
         <div class="page-fv__title-box">
           <h1 class="page-fv__title">ブログ</h1>
@@ -18,7 +20,6 @@
 
     <!-- パンくず -->
     <?php get_template_part('inc/breadcrumb')?>
-
 
     <!-- 下層 Blog -->
     <section class="l-page-blog page-blog">
@@ -30,11 +31,13 @@
                 <?php while ( have_posts() ) : the_post(); ?>
 
               <a href="<?php the_permalink(); ?>" class="blog-cards__item blog-card">
+              <div class="blog-card__img">
               <?php if ( has_post_thumbnail() ) : ?>
                 <img src="<?php echo get_the_post_thumbnail_url( null, 'full' ); ?>" alt="<?php the_title_attribute(); ?>のアイキャッチ画像">
             <?php else : ?>
                 <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/noimage.jpg" alt="noimage">
             <?php endif; ?>
+            </div>
                 <div class="blog-card__meta">
                   <time datetime="<?php echo get_the_date('c'); ?>" class="blog-card__date"><?php echo get_the_date('Y年n月j日'); ?></time>
                 </div>
