@@ -54,9 +54,6 @@
     justify-content: center;
     width: 70%;
     margin-inline: auto;
-    @include mq(md){
-       width: 75%;
-    }
 }
 
 .page-about__pastor-image img{

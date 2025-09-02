@@ -282,5 +282,20 @@ function my_dashboard_menu_display() {
     <?php
 }
 
+// フロントページだけタイトルとエディタを非表示にする
+function my_hide_frontpage_editor_title() {
+    // フロントページに設定されている固定ページのIDを取得
+    $front_page_id = get_option('page_on_front');
 
+    // 管理画面で編集している投稿IDを取得
+    $current_id = isset($_GET['post']) ? (int) $_GET['post'] : 0;
 
+    // 編集対象がフロントページだったら実行
+    if ($current_id === (int) $front_page_id) {
+        // エディタを非表示
+        remove_post_type_support('page', 'editor');
+        // タイトル入力欄を非表示
+        remove_post_type_support('page', 'title');
+    }
+}
+add_action('admin_init', 'my_hide_frontpage_editor_title');
