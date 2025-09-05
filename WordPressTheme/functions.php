@@ -6,56 +6,74 @@ function my_theme_enqueue_assets() {
   wp_enqueue_style(
     'my-theme-google-fonts', // ハンドル名（識別子）
     'https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&display=swap',
-    array(), // 依存関係なし
-    null     // バージョンを null にすることでキャッシュを避ける
+    array(),
+    null
   );
 
   // テーマのメインCSSを読み込み
   wp_enqueue_style(
-    'my-theme-style', // ハンドル名
+    'my-theme-style',
     get_theme_file_uri('/assets/css/style.css'),
-    array(),    // 他に依存するCSSがなければ空
-    filemtime(get_theme_file_path('/assets/css/style.css')) // 更新ごとにキャッシュクリア
+    array(),
+    filemtime(get_theme_file_path('/assets/css/style.css'))
   );
 
-  // jQuery の読み込み（WordPress 同梱版を使うのが推奨）
+  // jQuery の読み込み（WordPress 同梱版を使うのが推奨だが、ここではCDNを利用）
   wp_enqueue_script(
     'jquery-cdn',
     'https://code.jquery.com/jquery-3.6.0.js',
-    array(), // 依存関係なし
+    array(),
     '3.6.0',
-    true     // フッターで読み込む
+    true
+  );
+
+  // GSAP の読み込み
+  wp_enqueue_script(
+    'gsap-core',
+    'https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js',
+    array(), // 依存関係なし
+    '3.13.0',
+    true
+  );
+
+  // GSAP ScrollTrigger の読み込み（gsap-core に依存）
+  wp_enqueue_script(
+    'gsap-scrolltrigger',
+    'https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js',
+    array('gsap-core'),
+    '3.13.0',
+    true
   );
 
   // テーマのメインJSを読み込み
   wp_enqueue_script(
     'my-theme-script',
     get_theme_file_uri('/assets/js/script.js'),
-    array('jquery-cdn'), // jQuery に依存
-    filemtime(get_theme_file_path('/assets/js/script.js')), // キャッシュ対策
-    true // フッターで読み込み
+    array('jquery-cdn', 'gsap-core', 'gsap-scrolltrigger'), // 依存関係を指定
+    filemtime(get_theme_file_path('/assets/js/script.js')),
+    true
   );
 }
-
-// WordPress にフックする
 add_action('wp_enqueue_scripts', 'my_theme_enqueue_assets');
 
+// テーマセットアップ
 function my_setup() {
-	add_theme_support( 'post-thumbnails' ); /* アイキャッチ */
-	add_theme_support( 'automatic-feed-links' ); /* RSSフィード */
-	add_theme_support( 'title-tag' ); /* タイトルタグ自動生成 */
-	add_theme_support(
-		'html5',
-		array( /* HTML5のタグで出力 */
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-		)
-	);
+  add_theme_support('post-thumbnails');
+  add_theme_support('automatic-feed-links');
+  add_theme_support('title-tag');
+  add_theme_support(
+    'html5',
+    array(
+      'search-form',
+      'comment-form',
+      'comment-list',
+      'gallery',
+      'caption',
+    )
+  );
 }
-add_action( 'after_setup_theme', 'my_setup' );
+add_action('after_setup_theme', 'my_setup');
+
 
 //アーカイブの表示件数変更
 function change_posts_per_page($query) {

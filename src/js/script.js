@@ -106,3 +106,77 @@ jQuery(function ($) { // WordPressでも$を使えるようにするスコープ
 
 });
 
+gsap.fromTo(
+  '.top-worship-info__image img',
+  {
+    y: -50,
+  }
+  ,
+  {
+    y: 0,
+    duration: 2,
+    scrollTrigger:{
+      trigger:'.top-worship-info__image img',
+      start:'top bottom',
+      end: 'bottom top',
+      scrub: 2
+    },
+  }
+);
+
+gsap.fromTo(
+  '.news-item',
+  {
+    opacity: 0,
+    x: -30,
+  },
+  {
+    opacity: 1,
+    x: 0,
+    stagger: {
+      each: 0.1,
+      from: 'start',
+    },
+    scrollTrigger: {
+      trigger: '.top-news__items',
+      start: 'top center',
+    },
+    // アニメーション終了後に transform を削除
+    clearProps: "transform"
+  }
+)
+
+gsap.fromTo(
+  '.top-about__content',
+  {
+    opacity: 0,
+  },
+  {
+    scrollTrigger: {
+      trigger: '.top-about__content',
+      start: 'top center',
+    },
+    opacity: 1,
+    duration: 1
+  }
+)
+
+gsap.fromTo(
+  '.blog-card',
+  {
+    opacity: 0,
+  },
+  {
+    opacity: 1,
+    stagger: {
+      each: 0.2,
+      from: 'start',
+    },
+    scrollTrigger: {
+      trigger: '.top-blog__contents',
+      start: 'top center',
+    },
+ // アニメーション終了後に transform を削除
+    clearProps: "transform"
+  }
+)

@@ -3,7 +3,7 @@
   <footer class="footer <?php if ( is_front_page() ) echo 'l-top-footer'; ?>">
     <div class="footer__inner inner">
       <div class="footer__container">
-        <a href="index.html" class="footer__logo-link">
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="footer__logo-link">
           <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/omagarichurch_logo.svg" alt="大曲教会ロゴ" class="footer__logo-img" loading="lazy"
             decoding="async" width="179" height="63">
         </a>

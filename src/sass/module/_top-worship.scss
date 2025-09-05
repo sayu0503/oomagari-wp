@@ -90,11 +90,16 @@
     margin-top: rem(40);
 }
 
-.top-worship-info__image img {
-    filter: contrast(0.9);
+.top-worship-info__image{
     aspect-ratio: 345 /231;
-    width: 100%;
-    height: auto;
+    overflow: hidden;
     object-fit: cover;
     border-top-left-radius: rem(90);
+}
+
+.top-worship-info__image img {
+    filter: contrast(0.9);
+    width: 100%;
+    height: calc(100% + rem(50));
+    
 }
