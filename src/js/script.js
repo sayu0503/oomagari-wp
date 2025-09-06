@@ -48,28 +48,47 @@ jQuery(function ($) { // WordPressでも$を使えるようにするスコープ
     }
   });
 
-  // アンカーリンクのスムーススクロール（ページ内）
-  $('a[href^="#"]').click(function (e) {
-    e.preventDefault();
-    const headerHeight = $(".js-header").outerHeight();
-    const href = $(this).attr("href");
-    const $target = href === "#" || href === "" ? $("html") : $(href);
+// ヘッダーの高さを毎回計算する関数
+function getHeaderHeight() {
+  return $(".js-header").outerHeight() || 0;
+}
 
-    if ($target.length) {
-      const position = $target.offset().top - headerHeight;
-      $("html, body").animate({ scrollTop: position }, 600, "swing");
+// 余白を追加したい場合はここで調整
+var extraMargin = 0;
+
+// ページ読み込み時にハッシュがある場合の処理
+if (window.location.hash) {
+  // 一旦ブラウザのデフォルトジャンプを打ち消す
+  $("html, body").scrollTop(0);
+
+  // 読み込みが落ち着いてからスクロール
+  setTimeout(function () {
+    var target = $(window.location.hash);
+    if (target.length) {
+      var targetPosition = target.offset().top - getHeaderHeight() - extraMargin;
+      $("html, body").animate({
+        scrollTop: targetPosition
+      }, 800, "swing");
     }
-  });
+  }, 300);
+}
 
-  // ページ読み込み時にハッシュがある場合の処理
-  if (location.hash) {
-    const headerHeight = $(".js-header").outerHeight();
-    const $target = $(location.hash);
+// ページ内リンククリック時の処理
+$('a[href*="#"]').on("click", function (e) {
+  var href = $(this).attr("href");
+  var currentPath = location.pathname.replace(/\/$/, "");
+  var targetPath = this.pathname.replace(/\/$/, "");
+
+  if (currentPath === targetPath && location.hostname === this.hostname) {
+    e.preventDefault();
+
+    var $target = $(this.hash === "#" ? "html" : this.hash);
     if ($target.length) {
-      const position = $target.offset().top - headerHeight;
-      $("html, body").animate({ scrollTop: position }, 600, "swing");
+      var position = $target.offset().top - getHeaderHeight() - extraMargin;
+      $("html, body").stop().animate({ scrollTop: position }, 800, "swing");
     }
   }
+});
 
   // スクロールでページトップボタン表示制御
   $(".js-page-top").hide();

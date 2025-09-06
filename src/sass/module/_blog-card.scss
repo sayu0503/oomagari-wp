@@ -23,15 +23,15 @@
 
 
 .blog-card__img {
-    overflow: hidden;
-    aspect-ratio: 345 / 227;
+    overflow: hidden;               /* はみ出た部分を隠す */
+    aspect-ratio: 345 / 227;  
 }
 
 .blog-card__img img{
-    width: 100%;
-    height: -webkit-fill-available;
-    object-fit: cover;
-    display: block;
+    width: 100%;                    /* 横幅いっぱい */
+    height: 100%;                   /* 親要素の高さにフィット */
+    object-fit: cover;              /* トリミングしつつ均一表示 */
+    display: block;  
 }
 
 .blog-card__body {

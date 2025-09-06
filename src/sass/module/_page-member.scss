@@ -64,6 +64,24 @@
     transition: 0.3s ease-in-out;
     box-shadow: rem(4) rem(6) rem(4) rem(0) rgba(0, 0, 0, 0.05);
     margin-inline: auto;
-    
 }
 
+#pwbox-13 {
+    border: rem(1) solid $blue-black;
+}
+
+/* 「確定」ボタンをスタイルする */
+form input[type="submit"][name="Submit"] {
+    background-color: #0073aa;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  /* hover時 */
+  form input[type="submit"][name="Submit"]:hover {
+    background-color: #005f8d;
+  }

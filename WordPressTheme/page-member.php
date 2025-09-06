@@ -25,41 +25,48 @@
     <section class="page-member l-page-member">
   <div class="page-member__inner inner">
     <div class="page-member__contents">
-    <?php
-    // SCFからカレンダー情報を取得
-    $calendar_list = SCF::get('calendar_list');
 
-    if (!empty($calendar_list)) :
-      foreach ($calendar_list as $calendar) :
-        $title = esc_html($calendar['calendar_title']); // タイトル
+      <?php if ( post_password_required() ) : ?>
+        <?php echo get_the_password_form(); // パスワード入力フォームを表示 ?>
+      <?php else : ?>
+        <?php
+        // SCFからカレンダー情報を取得
+        $calendar_list = SCF::get('calendar_list');
 
-        // SCFが「メディア（ファイル）」の場合はIDをURLに変換
-        $pdf_id  = $calendar['calendar_pdf'];
-        $pdf_url = !empty($pdf_id) ? wp_get_attachment_url($pdf_id) : '';
-    ?>
-        <div class="page-member__box">
-          <div class="page-member__title">
-            <h2 class="page-member__header"><?php echo $title; ?></h2>
-          </div>
-          <?php if ($pdf_url) : ?>
-          <div class="page-member__link">
-          <div class="top-about__btn">
-              <a href="<?php echo esc_url($pdf_url); ?>" class="button" target="_blank" rel="noopener noreferrer">PDFを開く</a>
+        if ( ! empty( $calendar_list ) ) :
+          foreach ( $calendar_list as $calendar ) :
+            $title   = esc_html( $calendar['calendar_title'] );
+            $pdf_id  = $calendar['calendar_pdf'];
+            $pdf_url = ! empty( $pdf_id ) ? wp_get_attachment_url( $pdf_id ) : '';
+        ?>
+            <div class="page-member__box">
+              <div class="page-member__title">
+                <h2 class="page-member__header"><?php echo $title; ?></h2>
+              </div>
+              <?php if ( $pdf_url ) : ?>
+                <div class="page-member__link">
+                  <div class="top-about__btn">
+                    <a href="<?php echo esc_url( $pdf_url ); ?>" class="button" target="_blank" rel="noopener noreferrer">
+                      PDFを開く
+                    </a>
+                  </div>
+                </div>
+              <?php else : ?>
+                <p>PDFが登録されていません。</p>
+              <?php endif; ?>
             </div>
-          </div>
-          <?php else : ?>
-              <p>PDFが登録されていません。</p>
-          <?php endif; ?>
-        </div>
-    <?php
-      endforeach;
-    else :
-      echo '<p>現在カレンダーは登録されていません。</p>';
-    endif;
-    ?>
+        <?php
+          endforeach;
+        else :
+          echo '<p>現在カレンダーは登録されていません。</p>';
+        endif;
+        ?>
+      <?php endif; ?>
+
     </div>
   </div>
 </section>
+
 
 
   </main>

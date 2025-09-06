@@ -51,31 +51,47 @@ jQuery(function ($) {
     }
   });
 
-  // アンカーリンクのスムーススクロール（ページ内）
-  $('a[href^="#"]').click(function (e) {
-    e.preventDefault();
-    var headerHeight = $(".js-header").outerHeight();
-    var href = $(this).attr("href");
-    var $target = href === "#" || href === "" ? $("html") : $(href);
-    if ($target.length) {
-      var position = $target.offset().top - headerHeight;
-      $("html, body").animate({
-        scrollTop: position
-      }, 600, "swing");
-    }
-  });
+  // ヘッダーの高さを毎回計算する関数
+  function getHeaderHeight() {
+    return $(".js-header").outerHeight() || 0;
+  }
+
+  // 余白を追加したい場合はここで調整
+  var extraMargin = 0;
 
   // ページ読み込み時にハッシュがある場合の処理
-  if (location.hash) {
-    var headerHeight = $(".js-header").outerHeight();
-    var $target = $(location.hash);
-    if ($target.length) {
-      var position = $target.offset().top - headerHeight;
-      $("html, body").animate({
-        scrollTop: position
-      }, 600, "swing");
-    }
+  if (window.location.hash) {
+    // 一旦ブラウザのデフォルトジャンプを打ち消す
+    $("html, body").scrollTop(0);
+
+    // 読み込みが落ち着いてからスクロール
+    setTimeout(function () {
+      var target = $(window.location.hash);
+      if (target.length) {
+        var targetPosition = target.offset().top - getHeaderHeight() - extraMargin;
+        $("html, body").animate({
+          scrollTop: targetPosition
+        }, 800, "swing");
+      }
+    }, 300);
   }
+
+  // ページ内リンククリック時の処理
+  $('a[href*="#"]').on("click", function (e) {
+    var href = $(this).attr("href");
+    var currentPath = location.pathname.replace(/\/$/, "");
+    var targetPath = this.pathname.replace(/\/$/, "");
+    if (currentPath === targetPath && location.hostname === this.hostname) {
+      e.preventDefault();
+      var $target = $(this.hash === "#" ? "html" : this.hash);
+      if ($target.length) {
+        var position = $target.offset().top - getHeaderHeight() - extraMargin;
+        $("html, body").stop().animate({
+          scrollTop: position
+        }, 800, "swing");
+      }
+    }
+  });
 
   // スクロールでページトップボタン表示制御
   $(".js-page-top").hide();
