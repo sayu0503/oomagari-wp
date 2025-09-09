@@ -2786,7 +2786,7 @@ html {
 	left: calc(50% - min(48vw, 39.375rem));
 	position: absolute;
 	position: absolute;
-	top: -2.5rem;
+	top: -5.5rem;
 	width: 12.5rem;
 	z-index: 10;
 }
