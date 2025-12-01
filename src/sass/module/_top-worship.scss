@@ -26,44 +26,8 @@
     margin-top: rem(24);
 }
 
-.top-worship-time__title {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    gap: rem(8);
-    font-size: rem(20);
-    font-weight: $medium;
-    font-family: $base-font-family;
-    color: $white;
-    line-height: calc(14 / 20);
-    background-color: $blue-black;
-    border-radius: rem(10);
-    padding: rem(8) rem(16);
-
-    @include mq(md) {
-        font-size: rem(24);
-        padding: rem(12) rem(17);
-    }
-}
-
-.top-worship-time__title::before {
-    content: "";
-    display: inline-block;
-    background-image: url(../images/common/clock.png);
-    background-size: contain;
-    width: rem(20);
-    height: rem(20);
-
-    @include mq(md) {
-        width: rem(27);
-        height: rem(27);
-    }
-}
-
-
 .top-worship-time__list {
     margin-top: rem(16);
-
 }
 
 .top-worship-time__item {

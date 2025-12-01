@@ -12,12 +12,10 @@
     content: "";
     width: rem(30);
     margin-inline: rem(20);
-
     @include mq(md) {
         width: rem(50);
     }
 }
-
 .section-header__title {
     font-size: rem(32);
     font-weight: $bold;
@@ -25,7 +23,12 @@
     color: $blue-black;
     line-height: calc(38 / 32);
     letter-spacing: 0.05em;
-
+    @include mq(md) {
+        font-size: rem(40);
+    }
+}
+.section-header__title--small {
+    font-size: clamp(rem(24), 2vw + rem(20), rem(32));
     @include mq(md) {
         font-size: rem(40);
 

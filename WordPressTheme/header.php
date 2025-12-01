@@ -37,7 +37,7 @@
             <a href="<?php echo esc_url(home_url('/worship'))?>" class="header__link">
               <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/church_logo.svg" alt="教会のロゴ" decoding="async" class="header__link-icon"
                 width="20" height="22">
-              <span class="header__link-label">礼拝案内</span>
+              <span class="header__link-label">礼拝・集会案内</span>
             </a>
           </li>
           <li class="header__item">
@@ -84,7 +84,7 @@
               <a href="<?php echo esc_url(home_url('/news'))?>" class="sp-nav__link">お知らせ</a>
             </li>
             <li class="sp-nav__item">
-              <a href="<?php echo esc_url(home_url('/worship'))?>" class="sp-nav__link">礼拝案内</a>
+              <a href="<?php echo esc_url(home_url('/worship'))?>" class="sp-nav__link">礼拝・集会案内</a>
             </li>
             <li class="sp-nav__item">
               <a href="<?php echo esc_url(home_url('/about'))?>" class="sp-nav__link">教会紹介</a>

@@ -288,7 +288,7 @@ function my_dashboard_menu_display() {
         <!-- ギャラリー（仮: CPT gallery） -->
         <a href="<?php echo admin_url('post.php?post=8&action=edit'); ?>" class="my-dashboard__menu-item">
             <div class="my-dashboard__icon">🖼️</div>
-            <span>ギャラリー</span>
+            <span>礼拝・集会案内</span>
         </a>
 
         <!-- 会員限定（仮: CPT members） -->
@@ -317,3 +317,19 @@ function my_hide_frontpage_editor_title() {
     }
 }
 add_action('admin_init', 'my_hide_frontpage_editor_title');
+
+// WordPressのバージョン情報（セキュリティ上残す必要なし）
+remove_action('wp_head', 'wp_generator');
+
+// Windows Live Writer 用（非常に古いツール）
+remove_action('wp_head', 'wlwmanifest_link');
+
+// XML-RPC 編集ツール用（多くのサイトで不要）
+remove_action('wp_head', 'rsd_link');
+
+// Emoji用スクリプトとCSS（速度対策で消す人が多い）
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('wp_print_styles', 'print_emoji_styles');
+
+// REST API のURLリンク（外部との連携がなければ不要）
+remove_action('wp_head', 'rest_output_link_wp_head');

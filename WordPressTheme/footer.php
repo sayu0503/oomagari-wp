@@ -13,7 +13,7 @@
               <a href="<?php echo esc_url(home_url('/news'))?>" class="footer__link">お知らせ</a>
             </li>
             <li class="footer__item">
-              <a href="<?php echo esc_url(home_url('/worship'))?>" class="footer__link">礼拝案内</a>
+              <a href="<?php echo esc_url(home_url('/worship'))?>" class="footer__link">礼拝・集会案内</a>
             </li>
             <li class="footer__item">
               <a href="<?php echo esc_url(home_url('/about'))?>" class="footer__link">教会紹介</a>

@@ -4,17 +4,6 @@
     background-color: $gray;
 }
 
-.page-worship__intro {
-    font-size: rem(18);
-    font-weight: $regular;
-    font-family: $base-font-family;
-    color: $blue-black;
-    line-height: calc(27 / 18);
-    letter-spacing: 0.05em;
-    max-width: rem(825);
-    margin-inline: auto;
-}
-
 .page-worship__section {
     display: flex;
     flex-direction: column;
@@ -27,11 +16,10 @@
         grid-template-columns: 1fr 1fr;
         align-items: center;
     }
-
 }
 
 .page-worship__section:first-of-type {
-    margin-top: rem(40);
+    margin-top: rem(0);
 }
 
 .page-worship__section--reverse {
@@ -82,6 +70,20 @@
         border-top-left-radius: rem(90);
     }
   }
+  .page-worship__img img{
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 540 / 356;
+    border-top-left-radius: rem(90);
+    @include mq(md){
+        aspect-ratio: 772 / 1016;
+        border-top-left-radius: rem(0);
+        width: 90%;
+    }
+
+  }
 
   .page-worship__image img {
     display: block;
@@ -114,18 +116,27 @@
 .page-worship__meta {
     margin-top: rem(8);
 }
+.page-worship__meta-content:first-of-type {
+    margin-top: rem(8);
+}
+.page-worship__meta-content:not(:first-child){
+    margin-top: rem(16);
+}
 
-.page-worship__meta li {
-    font-size: rem(20);
+.page-worship__meta-text {
+    font-size: rem(18);
     font-weight: $medium;
     font-family: $base-font-family;
     color: $blue-black;
     line-height: calc(32 / 20);
 
-    @include mq(md) {
-        font-size: rem(20);
-        letter-spacing: 0.05em;
-    }
+}
+.page-worship__sub-title {
+    font-size: rem(20);
+    font-weight: $bold;
+    font-family: $base-font-family;
+    color: $blue-black;
+    line-height: calc(32 / 20);
 }
 
 .page-worship__text {

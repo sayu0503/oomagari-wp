@@ -59,7 +59,7 @@
       <div class="top-worship__inner inner">
         <div class="top-worship__section-header">
           <div class="section-header">
-            <h2 class="section-header__title">礼拝案内</h2>
+            <h2 class="section-header__title section-header__title--small">礼拝・集会案内</h2>
           </div>
         </div>
         <div class="top-worship__block">
@@ -71,10 +71,8 @@
               </p>
             </div>
             <div class="top-worship-time">
-              <h3 class="top-worship-time__title">礼拝時間</h3>
               <ul class="top-worship-time__list">
                 <li class="top-worship-time__item"><span>主日礼拝：</span>日曜日&ensp;午前10時15分</li>
-                <li class="top-worship-time__item"><span>聖餐式：</span>第2日曜日</li>
                 <li class="top-worship-time__item"><span>朝の祈り会：</span>水曜日&ensp;午前10時30分</li>
                 <li class="top-worship-time__item"><span>夕の祈り会：</span>水曜日&ensp;午後7時30分</li>
               </ul>
@@ -114,7 +112,7 @@
             <p class="top-school-info__time"><span>毎週日曜日</span>&ensp;9:15〜10:00</p>
             <p class="top-school-info__description">
               毎週日曜日の朝、子ども向けの礼拝を行っています。讃美歌や聖書のお話、楽しい工作などを通して、
-              信仰と優しい心を育みます。どなたでもお気軽にご参加ください。
+              信仰と優しい心を育みます。保護者の方もご一緒にお気軽にご参加ください。
             </p>
             <div class="top-school__btn">
               <a href="<?php echo esc_url(home_url('worship/#school'))?>" class="button button--left">詳しくはこちら</a>

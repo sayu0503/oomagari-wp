@@ -937,16 +937,16 @@ a {
 	justify-content: center;
 	margin-left: auto;
 	margin-right: auto;
-	width: 70%;
+	width: 100%;
 }
 
 .page-about__pastor-image img {
 	-o-object-fit: cover;
-	aspect-ratio: 310/392;
-	border-radius: 1.25rem;
+	aspect-ratio: 1/1;
+	border-radius: 50%;
 	box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
 	height: 100%;
-	max-width: 21.875rem;
+	max-width: 13.75rem;
 	object-fit: cover;
 	width: 100%;
 }
@@ -1339,7 +1339,7 @@ a {
 .page-fv__title {
 	color: #fff;
 	font-family: "Noto Serif JP", serif;
-	font-size: 2.5rem;
+	font-size: clamp(2rem, 2vw + 1.25rem, 2.5rem);
 	font-weight: 700;
 	letter-spacing: 0.4em;
 	line-height: 1.2;
@@ -1478,18 +1478,6 @@ form input[type=submit][name=Submit]:hover {
 	background-color: #F9F8F6;
 }
 
-.page-worship__intro {
-	color: #0D2936;
-	font-family: "Noto Sans", sans-serif;
-	font-size: 1.125rem;
-	font-weight: 400;
-	letter-spacing: 0.05em;
-	line-height: 1.5;
-	margin-left: auto;
-	margin-right: auto;
-	max-width: 51.5625rem;
-}
-
 .page-worship__section {
 	display: flex;
 	flex-direction: column;
@@ -1497,7 +1485,7 @@ form input[type=submit][name=Submit]:hover {
 }
 
 .page-worship__section:first-of-type {
-	margin-top: 2.5rem;
+	margin-top: 0rem;
 }
 
 .page-worship__section--reverse {
@@ -1507,6 +1495,16 @@ form input[type=submit][name=Submit]:hover {
 .page-worship__image {
 	position: relative;
 	z-index: 1;
+}
+
+.page-worship__img img {
+	-o-object-fit: cover;
+	aspect-ratio: 540/356;
+	border-top-left-radius: 5.625rem;
+	display: block;
+	height: auto;
+	object-fit: cover;
+	width: 100%;
 }
 
 .page-worship__image img {
@@ -1539,11 +1537,27 @@ form input[type=submit][name=Submit]:hover {
 	margin-top: 0.5rem;
 }
 
-.page-worship__meta li {
+.page-worship__meta-content:first-of-type {
+	margin-top: 0.5rem;
+}
+
+.page-worship__meta-content:not(:first-child) {
+	margin-top: 1rem;
+}
+
+.page-worship__meta-text {
+	color: #0D2936;
+	font-family: "Noto Sans", sans-serif;
+	font-size: 1.125rem;
+	font-weight: 500;
+	line-height: 1.6;
+}
+
+.page-worship__sub-title {
 	color: #0D2936;
 	font-family: "Noto Sans", sans-serif;
 	font-size: 1.25rem;
-	font-weight: 500;
+	font-weight: 700;
 	line-height: 1.6;
 }
 
@@ -1654,6 +1668,10 @@ form input[type=submit][name=Submit]:hover {
 	font-weight: 700;
 	letter-spacing: 0.05em;
 	line-height: 1.1875;
+}
+
+.section-header__title--small {
+	font-size: clamp(1.5rem, 2vw + 1.25rem, 2rem);
 }
 
 .sidebar__items {
@@ -1844,7 +1862,6 @@ form input[type=submit][name=Submit]:hover {
 .single-blog__image img,
 .single-blog__container img {
 	-o-object-fit: cover;
-	aspect-ratio: 345/231;
 	height: 100%;
 	object-fit: cover;
 	width: 100%;
@@ -1927,7 +1944,6 @@ form input[type=submit][name=Submit]:hover {
 .single-news__image img,
 .single-news__container img {
 	-o-object-fit: cover;
-	aspect-ratio: 345/200;
 	height: 100%;
 	object-fit: cover;
 	width: 100%;
@@ -1935,6 +1951,23 @@ form input[type=submit][name=Submit]:hover {
 
 .single-news__container {
 	margin-top: 1.5rem;
+}
+
+.single-news__container h2 {
+	background: #f4f4f4;
+	border-bottom: solid 3px #d7d7d7;
+	border-left: solid 5px #7db4e6;
+	color: #494949;
+	padding: 0.4em 0.5em;
+}
+
+.single-news__container h3 {
+	background: linear-gradient(transparent 70%, #a7d6ff 70%);
+}
+
+.single-news__container h4 {
+	border-bottom: dashed 2px #6594e0;
+	color: #6594e0;
 }
 
 .single-news__container p {
@@ -2049,9 +2082,11 @@ form input[type=submit][name=Submit]:hover {
 
 .top-about__image img {
 	-o-object-fit: cover;
-	aspect-ratio: 250/250;
+	aspect-ratio: 1/1;
 	border-radius: 50%;
+	box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
 	height: 100%;
+	max-width: 13.75rem;
 	object-fit: cover;
 	width: 100%;
 }
@@ -2085,6 +2120,7 @@ form input[type=submit][name=Submit]:hover {
 .top-about__church-image img {
 	-o-object-fit: cover;
 	aspect-ratio: 345/250;
+	box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
 	height: 100%;
 	object-fit: cover;
 	width: 100%;
@@ -2218,30 +2254,6 @@ form input[type=submit][name=Submit]:hover {
 
 .top-worship-time {
 	margin-top: 1.5rem;
-}
-
-.top-worship-time__title {
-	align-items: center;
-	background-color: #0D2936;
-	border-radius: 0.625rem;
-	color: #fff;
-	display: inline-flex;
-	font-family: "Noto Sans", sans-serif;
-	font-size: 1.25rem;
-	font-weight: 500;
-	gap: 0.5rem;
-	line-height: 0.7;
-	padding: 0.5rem 1rem;
-	position: relative;
-}
-
-.top-worship-time__title::before {
-	background-image: url(../images/common/clock.png);
-	background-size: contain;
-	content: "";
-	display: inline-block;
-	height: 1.25rem;
-	width: 1.25rem;
 }
 
 .top-worship-time__list {
@@ -2768,11 +2780,11 @@ html {
 }
 
 .page-about__pastor-content {
-	grid-gap: 6.25rem;
+	grid-gap: 1.25rem;
 	align-items: flex-end;
 	display: grid;
-	gap: 6.25rem;
-	grid-template-columns: repeat(2, 1fr);
+	gap: 1.25rem;
+	grid-template-columns: 40% 58%;
 	position: relative;
 }
 
@@ -2783,11 +2795,11 @@ html {
 	content: "";
 	display: block;
 	height: 10.625rem;
-	left: calc(50% - min(48vw, 39.375rem));
+	left: calc(50% - min(49vw, 37.5rem));
 	position: absolute;
 	position: absolute;
-	top: -5.5rem;
-	width: 12.5rem;
+	top: -1.5625rem;
+	width: 11.5rem;
 	z-index: 10;
 }
 
@@ -2801,13 +2813,13 @@ html {
 	height: 9.375rem;
 	position: absolute;
 	position: absolute;
-	right: calc(50% - min(48vw, 37.5rem));
+	right: calc(50% - min(48vw, 36.5rem));
 	width: 7.5rem;
 	z-index: 1;
 }
 
 .page-about__pastor-image img {
-	max-width: inherit;
+	max-width: 15.625rem;
 }
 
 .page-about__pastor-name {
@@ -3073,13 +3085,14 @@ html {
 	z-index: -1;
 }
 
-.page-worship__content {
-	margin-top: 0rem;
+.page-worship__img img {
+	aspect-ratio: 772/1016;
+	border-top-left-radius: 0rem;
+	width: 90%;
 }
 
-.page-worship__meta li {
-	font-size: 1.25rem;
-	letter-spacing: 0.05em;
+.page-worship__content {
+	margin-top: 0rem;
 }
 
 .wp-pagenavi--gap {
@@ -3092,6 +3105,10 @@ html {
 }
 
 .section-header__title {
+	font-size: 2.5rem;
+}
+
+.section-header__title--small {
 	font-size: 2.5rem;
 }
 
@@ -3112,11 +3129,6 @@ html {
 
 .single-blog__image {
 	margin-top: 2.5rem;
-}
-
-.single-blog__image img,
-.single-blog__container img {
-	aspect-ratio: 700/468;
 }
 
 .single-blog__container {
@@ -3187,6 +3199,10 @@ html {
 .top-about__pastor {
 	margin-top: 0rem;
 	width: 70%;
+}
+
+.top-about__image img {
+	max-width: 15.625rem;
 }
 
 .top-about__history-text {
@@ -3269,16 +3285,6 @@ html {
 	display: grid;
 	grid-template-columns: 38.1818181818% 1fr;
 	margin-top: 2.5rem;
-}
-
-.top-worship-time__title {
-	font-size: 1.5rem;
-	padding: 0.75rem 1.0625rem;
-}
-
-.top-worship-time__title::before {
-	height: 1.6875rem;
-	width: 1.6875rem;
 }
 
 .top-worship-time__item {
